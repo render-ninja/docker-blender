@@ -6,4 +6,4 @@ services:
 script:
 - docker build -t joaomlneto-blender-build env
 - wget https://download.blender.org/demo/eevee/race_spaceship/race_spaceship.blend
-- docker run --rm -v ./race_spaceship.blend:/file.blend -v ./analyze.py:/script.py joaomlneto-blender-build /file.blend -P /script.py | sed '1,3d' | sed -n -e :a -e '1,2!{P;N;D;};N;ba'
+- docker run --rm -v $(pwd)/race_spaceship.blend:/file.blend -v $(pwd)/analyze.py:/script.py joaomlneto-blender-build /file.blend -P /script.py
