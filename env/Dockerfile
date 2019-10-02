@@ -12,7 +12,6 @@ RUN mkdir blender
 RUN tar xjf blender.tar.bz2 -C blender --strip-components=1
 RUN rm -f blender.tar.bz2
 
-RUN /opt/blender/blender -b -noaudio --python-expr 'import bpy; scene = bpy.context.scene; print("Scene %r frames: %d..%d = %d" % (scene.name, scene.frame_start, scene.frame_end, scene.frame_end - scene.frame_start + 1))'
 COPY run-blender.sh /opt/run-blender.sh
 
 ENTRYPOINT ["/opt/run-blender.sh"]
