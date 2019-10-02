@@ -1,0 +1,7 @@
+sudo: required
+language: python
+services:
+- docker
+
+script:
+- docker build -t joaomlneto-blender-build env
